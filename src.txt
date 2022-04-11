@@ -1,0 +1,166 @@
+package testpackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Test {
+	
+	WebDriver driver;
+
+	@When("user launch the chrome browser")
+	public void user_launch_the_chrome_browser() {
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://demowebshop.tricentis.com/");
+	}
+
+	@When("user open the url{string}")
+	public void user_open_the_url(String url) {
+		driver.get("http://demowebshop.tricentis.com/");
+	}
+
+	@When("user click on log in button")
+	public void user_click_on_log_in_button() {
+		driver.findElement(By.xpath("//a[@href='/login']")).click();
+	}
+
+	@When("user enter email as{string} and password{string}")
+	public void user_enter_email_as_and_password(String Email, String Password) {
+		driver.findElement(By.cssSelector("input#Email")).sendKeys("mallikks@gmail.com");
+		driver.findElement(By.cssSelector("input#Password")).sendKeys("123456789");
+	}
+
+	@When("click on login button")
+	public void click_on_login_button() {
+		driver.findElement(By.xpath("//input[@class='button-1 login-button']")).click();
+	}
+
+	@When("page should be {string}")
+	public void page_should_be(String Title) {
+		driver.getTitle();
+	}
+
+	@When("click on the search bar")
+	public void click_on_the_search_bar() {
+		driver.findElement(By.id("small-searchterms")).sendKeys("Book");
+	}
+
+	@When("search the product {string}")
+	public void search_the_product(String string) {
+		driver.findElement(By.xpath("//input[@class='button-1 search-box-button']")).click();
+	}
+
+	@Then("add the product to the cart")
+	public void add_the_product_to_the_cart()  {
+		driver.findElement(By.xpath("//input[@class='button-2 product-box-add-to-cart-button']")).click();
+		
+	}
+
+
+	@When("click on the shopping Cart")
+	public void click_on_the_shopping_Cart()  {
+		driver.findElement(By.xpath("//span[text()='Shopping cart']")).click();
+		
+	}
+
+	@When("User has to click chekbox")
+	public void user_has_to_click_chekbox() throws InterruptedException {
+		//Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@type='checkbox']")).click();
+	}
+	@When("User has to Enter the country India")
+	public void user_has_to_Enter_the_country_India() {
+		driver.findElement(By.cssSelector("select#CountryId")).sendKeys("India");
+		//driver.findElement(By.xpath("//select[@class='country-input valid']")).sendKeys("India");
+	}
+	@When("User has to Enter the State Other \\(Non US)")
+	public void user_has_to_Enter_the_State_Other_Non_US() {
+		driver.findElement(By.cssSelector("select#StateProvinceId")).sendKeys("Other (Non US");
+		//driver.findElement(By.xpath("(//div[@class='inputs']//label)[2]")).sendKeys("Other (Non US)");
+	}
+
+	@When("USer has to Enter the Zip code {string}")
+	public void user_has_to_Enter_the_Zip_code(String string) {
+		driver.findElement(By.xpath("//input[@value='577547']")).sendKeys("577547");
+	}
+
+	@When("User has to click on the checkbox1")
+	public void user_has_to_click_on_the_checkbox1() {
+		//driver.findElement(By.id("(//input[@type='checkbox'])[2]")).click();
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[2]")).click();
+	}
+
+	@When("User has to Click on the Checkout")
+	public void user_has_to_Click_on_the_Checkout() {
+		driver.findElement(By.xpath("//button[@value='checkout']")).click();
+	}
+
+	@When("User has to click on  continue")
+	public void user_has_to_click_on_continue() {
+		driver.findElement(By.xpath("(//input[@type='button'])[2]")).click();
+	}
+	
+	@When("User has to click on continue1")
+	public void user_has_to_click_on_continue1() throws InterruptedException {
+		//driver.findElement(By.cssSelector("div#shipping-buttons-container>input")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//input[@class='button-1 new-address-next-step-button'])[2]")).click();
+	}
+
+	@When("user has to click on checkbox2")
+	public void user_has_to_click_on_checkbox2() throws InterruptedException {
+		//driver.findElement(By.cssSelector("input#shippingoption_0")).click();
+		//driver.findElement(By.id("//input[@value='Ground___Shipping.FixedRate']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@value='Ground___Shipping.FixedRate']")).click();
+	}
+
+	@When("USer has to click on Continue2")
+	public void user_has_to_click_on_Continue2() {
+		driver.findElement(By.xpath("//input[@class='button-1 shipping-method-next-step-button']")).click();
+	}
+	@When("user has to click on checkbox3")
+	public void user_has_to_click_on_checkbox3() throws InterruptedException {
+		Thread.sleep(3000);
+		//driver.findElement(By.id("//input[@value='Payments.CashOnDelivery']")).click();
+		driver.findElement(By.xpath("//input[@value='Payments.CashOnDelivery']")).click();
+		
+	}
+
+	@When("USer has to click on Continue3")
+	public void user_has_to_click_on_Continue3() {
+	
+		driver.findElement(By.cssSelector("div#payment-method-buttons-container>input")).click();
+	}
+	@When("USer has to click on Continue4")
+	public void user_has_to_click_on_Continue4() throws InterruptedException {
+		Thread.sleep(3000);
+		driver.findElement(By.cssSelector("div#payment-info-buttons-container>input")).click();
+	}
+	@Then("User has to click on ConfirmButton")
+	public void user_has_to_click_on_ConfirmButton() throws InterruptedException {
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+	}
+	@Then("User has to click on order details")
+	public void user_has_to_click_on_order_details() throws InterruptedException {
+		Thread.sleep(3000);
+		driver.findElement(By.cssSelector("html>body>div:nth-of-type(4)>div>div:nth-of-type(4)>div>div>div:nth-of-type(2)>div>ul>li:nth-of-type(2)>a")).click();
+		//driver.findElement(By.xpath("//a[@href='/orderdetails/1167692']")).click();
+	}
+
+	@Then("User has to click on PDF Invoice")
+	public void user_has_to_click_on_PDF_Invoice() throws InterruptedException {
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[@class='button-2 pdf-order-button']")).click();
+		
+	}
+
+
+}

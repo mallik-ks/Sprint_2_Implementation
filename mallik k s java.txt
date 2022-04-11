@@ -1,0 +1,23 @@
+1)Java is a high-level, class-based, object-oriented programming language 
+that is designed to have as few implementation dependencies as possible.
+2)Object Oriented.
+Platform Independent
+Simple
+Secure
+interputed
+portable
+multithread
+Dynamic
+3)Java uses Just-In-Time compiler to enable high performance.
+4) High Level Language Low Level Language
+It is programmer friendly language. It is a machine friendly language.
+It is easy to understand. It is tough to understand.
+It is simple to debug. It is complex to debug comparatively.
+Debugging is very easy to debug these languages.A programmer cannot easily debug these languages in low level language.
+Examples high-level languages include Perl, BASIC, COBOL, Pascal, Ruby, etc.	
+low-level languages include the Machine language and Assembly language.
+5) Developed by Sun microsystems
+Founder – James gosling
+Later Oracle acquired Sun microsystem and started releasing the versions
+Open source
+

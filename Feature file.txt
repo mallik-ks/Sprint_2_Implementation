@@ -1,0 +1,29 @@
+Feature: Confirm Booking Functianality
+
+Scenario: Confirm  products functionality
+When user launch the chrome browser
+And user open the url"http://demowebshop.tricentis.com/"
+And user click on log in button
+And user enter email as"mallikks@gmail.com" and password"123456789"
+And click on login button
+And page should be "Dashboard"
+And click on the search bar
+And search the product "Book"
+And add the product to the cart
+And click on the shopping Cart
+And User has to click chekbox
+And User has to Enter the country India
+And User has to Enter the State Other (Non US)
+And USer has to Enter the Zip code "577547"
+And User has to click on the checkbox1
+And User has to Click on the Checkout 
+And User has to click on  continue
+And User has to click on continue1
+And user has to click on checkbox2
+And USer has to click on Continue2
+And user has to click on checkbox3
+And USer has to click on Continue3
+And USer has to click on Continue4
+Then User has to click on ConfirmButton
+Then User has to click on order details
+Then User has to click on PDF Invoice 
